@@ -11,26 +11,48 @@ describe("Mod P7. Complex.add/sub/mult/div(NumberAdapter)", () => {
   const adapter1: NumberAdapter = new NumberAdapter(rational1);
   const adapter2: NumberAdapter = new NumberAdapter(rational2);
 
-  it("Add", () => {
+  it("Add c1 + a1", () => {
     expect(complex1.add(adapter1)).to.deep.equal(new Complex(1.5, 2));
+  });
+
+  it("Add c1 + a2", () => {
     expect(complex1.add(adapter2)).to.deep.equal(new Complex(4 / 3, 2));
+  });
+
+  it("Add c2 + a2", () => {
+    expect(complex2.add(adapter2)).to.deep.equal(new Complex(4/3,3));
   });
 
   it("Sub", () => {
     expect(complex1.substract(adapter1)).to.deep.equal(new Complex(0.5, 2));
     // expect(complex1.substract(adapter2)).to.deep.equal(new Complex(2/3, 2));
+    // expect(complex2.substract(adapter2)).to.deep.equal(new Complex(2/3, 3));
   });
 
-  it("Mult", () => {
+  it("Mult c1 * a1", () => {
     expect(complex1.multiply(adapter1)).to.deep.equal(new Complex(0.5, 1));
+  });
+
+  it("Mult c1 * a2", () => {
     expect(complex1.multiply(adapter2)).to.deep.equal(
       new Complex(1 / 3, 2 / 3),
-    );
+      );
   });
 
-  it("Divide", () => {
+  it("Mult c2 * a2", () => {
+    expect(complex2.multiply(adapter2)).to.deep.equal(new Complex(1/3, 1));
+  });
+  
+  it("Divide c1 / a1", () => {
     expect(complex1.divide(adapter1)).to.deep.equal(new Complex(2, 4));
+  });
+
+  it("Divide c1 / a2", () => {
     expect(complex1.divide(adapter2)).to.deep.equal(new Complex(3, 6));
+  });
+
+  it("Divide c2 / a2", () => {
+    expect(complex2.divide(adapter2)).to.deep.equal(new Complex(3, 9));
   });
 
   it("Divide two complex", () => {
